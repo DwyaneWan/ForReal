@@ -1,0 +1,115 @@
+
+.bar {
+    stroke: #4d4d4d;
+    stroke-width: 1px;
+}
+
+
+h3 {
+    font-family: Georgia;
+    color: #0570b0;
+    font-size: 24px;
+}
+
+#all {
+    font-family: Georgia;
+    color: #525252;
+    resize: both;
+    padding-right: 150px;
+    margin: auto;
+    max-width: 1080px;
+    overflow: scroll;
+}
+
+form {
+    font-family: Georgia;
+    height: 30px;
+    color: #525252;
+    font-size: 15px;
+}
+
+button {
+    font-family: Georgia;
+    font-size: 15px;
+    color: white;
+    width: 100px;
+    height: 30px;
+    background-color: #2b8cbe;
+}
+
+.year, .price {
+    font-family: Geneva;
+}
+
+.search1 {
+    height: 30px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+}
+
+
+@keyframes click-wave {
+    0% {
+        height: 20px;
+        width: 20px;
+        opacity: 0.35;
+        position: relative;
+    }
+}
+
+.option-input {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -ms-appearance: none;
+    -o-appearance: none;
+    appearance: none;
+    position: relative;
+    top: 7px;
+    right: 0;
+    bottom: 0;
+    left: 5px;
+    height: 20px;
+    width: 20px;
+    transition: all 0.15s ease-out 0s;
+    background: #cbd1d8;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    display: inline-block;
+    outline: none;
+    position: relative;
+    z-index: 1000;
+}
+.option-input:hover {
+    background: #9faab7;
+}
+.option-input:checked {
+    background: #2b8cbe;
+}
+.option-input:checked::before {
+    height: 20px;
+    width: 20px;
+    position: absolute;
+    content: '✔';
+    display: inline-block;
+    font-size: 10px;
+    text-align: center;
+    line-height: 20px;
+}
+.option-input:checked::after {
+    -webkit-animation: click-wave 0.65s;
+    -moz-animation: click-wave 0.65s;
+    animation: click-wave 0.65s;
+    background: #2b8cbe;
+    content: '';
+    display: block;
+    position: relative;
+    z-index: 100;
+}
+.option-input.radio {
+    border-radius: 50%;
+}
+.option-input.radio::after {
+    border-radius: 50%;
+}
+

@@ -1,0 +1,765 @@
+<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="">
+<!--<![endif]-->
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>ForReal</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Raleway Google fonts  -->
+    <link href='https://fonts.googleapis.com/css?family=Raleway:400,100,200,300,400italic,500,100italic,700' rel='stylesheet' type='text/css'>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="assets/css/normalize.css">
+    <link rel="stylesheet" href="assets/css/fonticons.css">
+    <link rel="stylesheet" href="assets/css/magnific-popup.css">
+    <link rel="stylesheet" href="assets/css/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/bootstrap.css">
+
+    <!-- For navmenu css -->
+    <link rel="stylesheet" href="assets/css/navmenu.css" />
+
+    <!--         <!-For Plugins external css-->
+    <link rel="stylesheet" href="assets/css/plugins.css" />
+
+    <!--Theme custom css -->
+    <link rel="stylesheet" href="assets/css/style.css">
+
+    <!--Theme Responsive css-->
+    <link rel="stylesheet" href="assets/css/responsive.css" />
+
+    <!--Theme Colors css-->
+    <!--<link rel="stylesheet" href="assets/css/white.css">-->
+    <!--Old browser  JS-->
+    <script src="assets/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+    <link rel="shortcut icon" type="image/x-icon" href="docs/images/favicon.ico" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.2.0/dist/leaflet.css" integrity="sha512-M2wvCLH6DSRazYeZRIm1JnYyh22purTM+FDB5CsyxtQJYeKq83arPe5wgbNmcFXGqiSH2XR8dT/fJISVA1r/zQ==" crossorigin="" />
+    <script src="https://unpkg.com/leaflet@1.2.0/dist/leaflet.js" integrity="sha512-lInM/apFSqyy1o6s89K4iQUKg6ppXEgsVxT35HbzUupEVRh2Eu9Wdl4tHj7dZO0s1uvplcYGmt3498TtHq+log==" crossorigin=""></script>
+    <script src="http://d3js.org/d3.v3.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="http://d3js.org/d3.v3.min.js"></script>
+    <script src="functions.js"></script>
+
+</head>
+<style>
+    .bar {
+    stroke: #4d4d4d;
+    stroke-width: 1px;
+}
+
+
+h3 {
+    font-family: Georgia;
+    color: #0570b0;
+}
+
+body {
+    font-family: Georgia;
+    color: #525252;
+}
+
+#all {
+    font-family: Georgia;
+    color: #525252;
+    resize: both;
+    padding-right: 150px;
+    margin: auto;
+    max-width: 1320px;
+}
+
+form {
+    font-family: Georgia;
+    height: 30px;
+    color: #525252;
+}
+
+button {
+    font-family: Georgia;
+    font-size: 14px;
+    color: white;
+    width: 100px;
+    height: 30px;
+    background-color: #2b8cbe;
+}
+
+.search1 {
+    height: 30px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+}
+
+
+@keyframes click-wave {
+    0% {
+        height: 20px;
+        width: 20px;
+        opacity: 0.35;
+        position: relative;
+    }
+
+    100% {
+        height: 40px;
+        width: 40px;
+        margin-left: 2px;
+        margin-top: 2px;
+        opacity: 0;
+    }
+}
+
+.option-input {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -ms-appearance: none;
+    -o-appearance: none;
+    appearance: none;
+    position: relative;
+    top: 7px;
+    right: 0;
+    bottom: 0;
+    left: 5px;
+    height: 20px;
+    width: 20px;
+    transition: all 0.15s ease-out 0s;
+    background: #cbd1d8;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    display: inline-block;
+    outline: none;
+    position: relative;
+    z-index: 1000;
+}
+.option-input:hover {
+    background: #9faab7;
+}
+.option-input:checked {
+    background: #2b8cbe;
+}
+.option-input:checked::before {
+    height: 20px;
+    width: 20px;
+    position: absolute;
+    content: '✔';
+    display: inline-block;
+    font-size: 10px;
+    text-align: center;
+    line-height: 20px;
+}
+.option-input:checked::after {
+    -webkit-animation: click-wave 0.65s;
+    -moz-animation: click-wave 0.65s;
+    animation: click-wave 0.65s;
+    background: #2b8cbe;
+    content: '';
+    display: block;
+    position: relative;
+    z-index: 100;
+}
+.option-input.radio {
+    border-radius: 50%;
+}
+.option-input.radio::after {
+    border-radius: 50%;
+}
+</style>
+
+<body data-spy="scroll" data-target="#scrollspy">
+
+    <div class="main_figur">
+        <!-- Home Section -->
+        <section id="home" class="home">
+            <div class="overlay"></div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12 ">
+
+                        <div class="main_home text-center wow fadeInUp" data-wow-duration="700ms">
+                            <h1>ForReal: Forecast Real Estate Prices in King County<br />
+                                    </h1>
+                        </div>
+
+                        <div class="scrolldown">
+                            <a href="#about"><i class="fa fa-long-arrow-down"></i></a>
+                        </div>
+
+                    </div>
+                    <!-- End of col-md-12 -->
+                </div>
+                <!-- End of row -->
+            </div>
+            <!-- End of Container -->
+
+        </section>
+        <!-- End of Home Section -->
+
+        <!-- About Section -->
+        <section id="about" class="about">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12 ">
+                        <div class="main_about_area p-t-3">
+                            <div class="head_title m-y-3  wow fadeInUp">
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <h2>About ForReal</h2>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <h6 class="m-b-2">Investors usually acquire information about the sales rates through their personal agencies, newspapers or previous experiences. How to optimize this phenomenon?
+                                            </h6>
+                                        <p>
+                                            Realizing that the uncertainty of predicting the house sales rates and the partial information for investors to make decisions, our team plan to predict the trend of the house-sales rates in the King county based on the Zillow dataset of the King County’s real estate through ML models.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <hr />
+                        </div>
+                        <!-- End of col-md-12 -->
+                    </div>
+                    <!-- End of row -->
+                </div>
+                <!-- End of Container-fluid -->
+        </section>
+        <!-- End of Home Section -->
+
+        <section id="Map">
+
+            <div id="all">
+                <div id="mapid" style="width: 900px; height: 600px; float: left;"></div>
+                <div id="search" style="margin-top:0px; margin-left: 920px; width: 900px; height: 100px;">
+                    <h3>Filter</h3>
+                    <form>
+                        Price from
+                        <input type="search" id="mySearch1" style="margin-top: 10px; width: 70px; height: 25px" placeholder="Input"> to
+                        <input type="search" id="mySearch2" style="margin-top: 10px; width: 70px; height: 25px" placeholder="Input">
+                        <br /> Number of rooms
+                        <input type="search" id="mySearch3" style="margin-top: 10px; width: 80px; height: 25px" placeholder="Input">
+                        <br /> Zip Code
+                        <input type="search" id="mySearch4" style="margin-top: 10px; width: 80px; height: 25px" placeholder="Input">
+                        <br />
+                        <div>
+                            <button style="margin-top: 10px; width: 120px" type="button" , id="filter">Double Click</button>
+                        </div>
+                    </form>
+                </div>
+                <div id="price" style="margin-top:130px; margin-left: 920px; width: 900px; height: 50px;">
+                    <h3>Show Prices</h3>
+                    <form>
+                        <input type="radio" name="choice" value="Current" onclick="updateYear()"> Current
+                        <input type="radio" name="choice" value="1" onclick="updateYear()"> 1 yr
+                        <input type="radio" name="choice" value="3" onclick="updateYear()"> 3 yrs
+                        <input type="radio" name="choice" value="5" onclick="updateYear()"> 5 yrs
+                    </form>
+                </div>
+                <div id="barchart" style="margin-top: 70px; margin-left: 920px; width: 900px; height: 300px;">
+                    <h3>Prediction</h3>
+                </div>
+            </div>
+            <script type="text/javascript">
+                var query_All = {};
+                query_Update = {};
+                //receive json from backend to query_resul
+
+                $ajax = $.ajax({
+                    url: '/test',
+                    type: "get",
+                    dataType: 'json'
+                }).done(function(obj) {
+                    query_All = obj;
+                    console.log(query_All);
+                });
+
+
+
+                // ajax is to transfer data between server and front end
+                $(function() {
+                    $("#filter").click(function() {
+                        //var query = $("#mySearch").val();
+                        //var values =filterHouse()
+                        var values = filterHouse();
+                        //console.log(pricel)
+                        //var x = document.getElementById("mySearch").value;
+                        var data = {
+                            "zip": values[3],
+                            "pricel": values[0],
+                            "priceh": values[1]
+                        };
+                        $.ajax({
+                            url: '/name',
+                            type: 'post',
+                            data: data,
+                            async: false,
+                            cache: false,
+                            success: function(response){
+                                //$("#clicked").html(response);
+                                query_Update = response;
+                                draw(query_Update);
+                            }
+                        });
+                    });
+                });
+
+                var colors = ["#ffffcc", "#ffeda0", "#fed976", "#feb24c", "#fd8d3c", "#fc4e2a", "#e31a1c", "#bd0026", "#800026"],
+                    colorScale = d3.scale.quantile().range(colors);
+                var margin = {
+                        top: 0,
+                        right: 20,
+                        bottom: 20,
+                        left: 20
+                    },
+                    width = 500 - margin.left - margin.right,
+                    height = 300 - margin.top - margin.bottom,
+                    yScale = d3.scale.linear().range([20, height * 0.8]);
+
+                // create svg for the bar chart
+                var svg = d3.select("#barchart")
+                    .append("svg")
+                    .attr("width", width)
+                    .attr("height", height)
+                    .attr("transform", "translate(0," + margin.top + ")");
+
+                showBack();
+
+                var mymap = L.map('mapid').setView([47.504, -122.227], 10);
+
+                zipcode = "";
+
+                L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
+                    maxZoom: 18,
+                    attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, ' +
+                    '<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
+                    'Imagery © <a href="http://mapbox.com">Mapbox</a>',
+                    id: 'mapbox.streets'
+                }).addTo(mymap);
+                active = 1;
+
+                var markerGroup = L.layerGroup().addTo(mymap);
+                var markerSet = L.layerGroup().addTo(mymap);
+                // front page of the website, initial state
+                d3.csv("avg_per.csv", function(zipData) {
+                    d3.csv("totalData.csv", function(houseData) {
+
+                        query_Update = houseData;
+
+                        // process the data
+                        houseData.forEach(function(d) {
+                            d.price = +d.price;
+                            d.oneYear = +d.oneYear;
+                            d.threeYear = +d.threeYear;
+                            d.fiveYear = +d.fiveYear;
+                        });
+
+                        // set the color scale domain, and y scale domain
+                        var minPrice = d3.min(houseData, function(d) {
+                                return d.price;
+                            }),
+                            maxPrice = d3.max(houseData, function(d) {
+                                return d.price;
+                            });
+                        colorScale.domain([minPrice, maxPrice / 6]);
+                        yScale.domain([0, maxPrice]);
+
+                        zipData.forEach(function(d) {
+                            L.marker([d.lat, d.long]).addTo(mymap)
+                                .bindPopup(d.zipcode + ": $" + d.avg + "/sqrt")
+                                .on('mouseover', function() {
+                                    this.openPopup();
+                                })
+                                .on('mouseout', function() {
+                                    this.closePopup();
+                                })
+                                .on('click', function() {
+                                    zipcode = d.zipcode;
+                                    console.log("zipcode: " + zipcode);
+                                    // click and dis-click the zipcode marker
+                                    if (active === 1){
+                                        active = 0;
+                                        mymap.setView([d.lat, d.long], 14);
+                                        markerGroup = L.layerGroup().addTo(mymap);
+                                        houseData.forEach(function(e) {
+                                            if (d.zipcode === e.zipcode) {
+                                                var color = colorScale(e.price);
+                                                if (getYear() === "Current") {
+                                                    color = colorScale(e.price);
+                                                }
+                                                if (getYear() === "1") {
+                                                    color = colorScale(e.oneYear);
+                                                }
+                                                if (getYear() === "3") {
+                                                    color = colorScale(e.threeYear);
+                                                }
+                                                if (getYear() === "5") {
+                                                    color = colorScale(e.fiveYear);
+                                                }
+                                                L.circle([e.lat, e.long], {
+                                                    color: "none",
+                                                    stroke: 1,
+                                                    fillColor: color,
+                                                    fillOpacity: 1,
+                                                    radius: 40
+                                                }).addTo(markerGroup)
+                                                    .bindPopup("price: $" + e.price)
+                                                    .on('mouseover', function () {
+                                                        d3.selectAll(".back").remove();
+                                                        this.openPopup();
+                                                        drawBars(e);
+                                                    })
+                                                    .on('mouseout', function() {
+                                                        this.closePopup();
+                                                        d3.selectAll(".barchart").remove();
+                                                        showBack();
+                                                    })
+                                            }
+                                        })
+                                    } else {
+                                        active = 1;
+                                        mymap.removeLayer(markerGroup);
+                                    }
+                                })
+                        });
+                    })
+                });
+                var popup = L.popup();
+
+
+                function draw(result) {
+                    var values = filterHouse();
+                    if (values[3] !== "") zipcode = values[3];
+                    if (values[0] === "" && values[1] === "" && values[2] === "" && values[3] === "" ) {
+                        mymap.removeLayer(markerGroup);
+                        active = 1;
+                        mymap.setView([47.504, -122.227], 10);
+                    } else if (zipcode !== "") {
+                        zipcode = parseInt(zipcode);
+                        d3.csv("avg_per.csv", function (zipData) {
+                            zipData.forEach(function (d) {
+                                d.zipcode = +d.zipcode;
+                                if (d.zipcode === zipcode) {
+                                    mymap.setView([d.lat, d.long], 14);
+                                }
+                            })
+                        });
+                    }
+                    if (result.length !== 0) {
+                        active = 0;
+                        mymap.removeLayer(markerGroup);
+                        markerGroup = L.layerGroup().addTo(mymap);
+                        result.forEach(function (e) {
+                            if (e.zipcode === zipcode) {
+                                var color = colorScale(e.price);
+                                if (getYear() === "Current") {
+                                    color = colorScale(e.price);
+                                }
+                                if (getYear() === "1") {
+                                    color = colorScale(e.oneYear);
+                                }
+                                if (getYear() === "3") {
+                                    color = colorScale(e.threeYear);
+                                }
+                                if (getYear() === "5") {
+                                    color = colorScale(e.fiveYear);
+                                }
+                                L.circle([e.lat, e.long], {
+                                    color: "none",
+                                    stroke: 1,
+                                    fillColor: color,
+                                    fillOpacity: 1,
+                                    radius: 40
+                                }).addTo(markerGroup)
+                                    .bindPopup("price: $" + e.price)
+                                    .on('mouseover', function () {
+                                        d3.selectAll(".back").remove();
+                                        this.openPopup();
+                                        drawBars(e);
+                                    })
+                                    .on('mouseout', function() {
+                                        this.closePopup();
+                                        d3.selectAll(".barchart").remove();
+                                        showBack();
+                                    })
+                            }
+                        })
+                    }
+                }
+
+
+                function drawBars(e) {
+                    var prices = [];
+                    prices.push(e.price);
+                    prices.push(e.oneYear);
+                    prices.push(e.threeYear);
+                    prices.push(e.fiveYear);
+                    var years = ["2017", "2018", "2020", "2022"];
+
+                    var barchart = svg.append("g")
+                        .attr("class", "barchart");
+
+                    barchart.selectAll(".bar").data(prices).enter()
+                        .append("rect")
+                        .attr("y", function(d, i) {return 3 + i * 44;})
+                        .attr("x", 36)
+                        .attr("rx", 2)
+                        .attr("ry", 2)
+                        .attr("height", 35)
+                        .attr("width", 30)
+                        .attr("class", "bar")
+                        .style("fill", function(d) {
+                            return colorScale(d);
+                        })
+                        .transition().duration(1000)
+                        .attr("width", function(d) { return yScale(d);});
+
+                    barchart.selectAll(".price").data(prices).enter()
+                        .append("text")
+                        .text(function(d) {return Math.floor(d / 1000) + "K";})
+                        .attr("text-anchor", "start")
+                        .attr("y", function(d, i) {return i * 44 + 25;})
+                        .attr("x", 70)
+                        .attr("font-size", "13px")
+                        .attr("fill", "#4d4d4d")
+                        .attr("class", "price")
+                        .transition().duration(600)
+                        .attr("x", function(d) {return 40 + yScale(d)});
+
+                    barchart.selectAll(".year").data(years).enter()
+                        .append("text")
+                        .text(function(d) {return d;})
+                        .attr("text-anchor", "start")
+                        .attr("y", function(d, i) {return 25 + i * 44;})
+                        .attr("x", 0)
+                        .attr("font-size", "12px")
+                        .attr("class", "year");
+                }
+
+                function showBack() {
+                    var backChart = svg.append("g").attr("class", "back");
+                    var widths = [50, 120, 130, 180];
+                    backChart.selectAll(".backbar").data(widths).enter()
+                        .append("rect")
+                        .attr("y", function(d, i) {return 3 + i * 44;})
+                        .attr("x", 10)
+                        .attr("rx", 3)
+                        .attr("ry", 3)
+                        .attr("height", 35)
+                        .attr("width", function(d) { return d;})
+                        .attr("class", "backbar")
+                        .style("opacity", "0")
+                        .style("fill", "#d9d9d9")
+                        .transition().duration(1000)
+                        .style("opacity", 1);
+                }
+
+                function updateYear() {
+                    if (zipcode !== "") {
+                        mymap.removeLayer(markerGroup);
+                        markerGroup = L.layerGroup().addTo(mymap);
+                        query_Update.forEach(function (e) {
+                            if (e.zipcode === zipcode) {
+                                var color = colorScale(e.price);
+                                if (getYear() === "Current") {
+                                    color = colorScale(e.price);
+                                }
+                                if (getYear() === "1") {
+                                    color = colorScale(e.oneYear);
+                                }
+                                if (getYear() === "3") {
+                                    color = colorScale(e.threeYear);
+                                }
+                                if (getYear() === "5") {
+                                    color = colorScale(e.fiveYear);
+                                }
+                                L.circle([e.lat, e.long], {
+                                    color: "none",
+                                    stroke: 1,
+                                    fillColor: color,
+                                    fillOpacity: 1,
+                                    radius: 40
+                                }).addTo(markerGroup)
+                                    .bindPopup("price: $" + e.price)
+                                    .on('mouseover', function () {
+                                        d3.selectAll(".back").remove();
+                                        this.openPopup();
+                                        drawBars(e);
+                                    })
+                                    .on('mouseout', function() {
+                                        this.closePopup();
+                                        d3.selectAll(".barchart").remove();
+                                        showBack();
+                                    })
+                            }
+                        })
+                    }
+                }
+
+                function getYear() {
+                    var radios = document.getElementsByName("choice");
+                    var i = 0, len = radios.length;
+                    var checked = false;
+                    var userAnswer;
+
+                    for (; i < len; i++) {
+                        if (radios[i].checked) {
+                            checked = true;
+                            userAnswer = radios[i].value;
+                        }
+                    }
+                    return userAnswer;
+                }
+
+                function filterHouse() {
+                    var value1 = document.getElementById('mySearch1').value;
+                    var value2 = document.getElementById('mySearch2').value;
+                    var value3 = document.getElementById('mySearch3').value;
+                    var value4 = document.getElementById('mySearch4').value;
+                    return [value1, value2, value3, value4];
+
+                }
+            </script>
+
+        </section>
+        <!-- Team Section -->
+        <section id="team" class="team">
+            <div class="container">
+                <div class="row">
+                    <hr />
+                    <div class="main_team_area m-t-3">
+                        <div class="head_title m-y-3  wow fadeInUp">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <h2>Our Team</h2>
+                                </div>
+                                <div class="col-md-8">
+                                    <h6>Out team took seperate responsibilities to make this project. Every teammate had his own major job based on interest and experience, but collaborated and communicated frequently when encountering peoblems.</h6>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="main_team_content wow fadeInUp">
+                            <div class="col-md-3 col-xs-12">
+                                <div class="single_team m-t-2">
+                                    <img src="assets/images/lizongyi.jpeg" alt="" />
+                                    <div class="single_team_text text-center">
+                                        <h6>Zongyi Li</h6>
+                                        <p>PROJECT MANAGER</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- End of col-md-4 -->
+
+                            <div class="col-md-3 col-xs-12">
+                                <div class="single_team  m-t-2">
+                                    <img src="assets/images/jiangyi.jpeg" alt="" />
+                                    <div class="single_team_text text-center">
+                                        <h6>Yi Jiang</h6>
+                                        <p>BACK END</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- End of col-md-4 -->
+
+                            <div class="col-md-3 col-xs-12">
+                                <div class="single_team  m-t-2">
+                                    <img src="assets/images/xubo.jpeg" alt="" />
+                                    <div class="single_team_text text-center">
+                                        <h6>Bo Xu</h6>
+                                        <p>MACHINE LEARNING</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- End of col-md-4 -->
+
+                            <div class="col-md-3 col-xs-12">
+                                <div class="single_team  m-t-2">
+                                    <img src="assets/images/wanlipeng.jpeg" alt="" />
+                                    <div class="single_team_text text-center">
+                                        <h6>Lipeng Wan</h6>
+                                        <p>FRONT END</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- End of col-md-4 -->
+
+                            <div class="col-md-3 col-xs-12">
+                                <div class="single_team  m-t-2">
+                                    <img src="assets/images/zhangjiawei.jpeg" alt="" />
+                                    <div class="single_team_text text-center">
+                                        <h6>Jiawei Zhang</h6>
+                                        <p>FRONT END</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- End of col-md-4 -->
+
+                        </div>
+                    </div>
+                    <!-- End of main Team area -->
+                </div>
+                <!-- End of row -->
+            </div>
+            <!-- End of container -->
+        </section>
+        <!-- End of Team Section -->
+
+        <!-- Testiomonial Section -->
+        <section id="testiomonial" class="testimonial">
+            <div class="main_testimonial_area">
+                <div class="overlay"></div>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="head_title m-y-3 p-t-2  wow fadeInUp">
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <h2>Contact</h2>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <h3 class="">forreal6242@gmail.com</h3>
+                                        <h6>Gatech CSE 6242 team ForReal Copyright </h6>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="testimonial_content text-center p-y-3 m-b-3">
+                                <div class="test_slider">
+                                    <div class="single_test">
+                                        <h3 class="" style="color: white">forreal6242@gmail.com</h3>
+                                        <h3 class="">Gatech CSE 6242 team ForReal Copyright </h3>
+                                        
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <!-- End off col-md-12 -->
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- End of testimonial Section -->
+
+        </div>
+
+        <script src="assets/js/vendor/jquery-1.11.2.min.js"></script>
+        <script src="assets/js/vendor/bootstrap.min.js"></script>
+
+        <!-- Compiled and minified JavaScript -->
+        <script src="assets/js/materialize.min.js"></script>
+        <script src="assets/js/jquery.easing.1.3.js"></script>
+        <script src="assets/js/materialize.js"></script>
+        <script src="assets/js/jquery.magnific-popup.js"></script>
+
+        <script src="assets/js/plugins.js"></script>
+        <script src="assets/js/main.js"></script>
+
+</body>
+
+</html>
