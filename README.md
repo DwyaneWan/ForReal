@@ -1,6 +1,6 @@
 # ForReal
 
-ForReal is a cloud-enabled and machine learning-supported real estate prediction system.
+ForReal is a cloud-enabled and machine learning-supported real estate prediction system. This project is now hosted on https://fierce-headland-66771.herokuapp.com/
 
 ### File
 1. web_server.js
