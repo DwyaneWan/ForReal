@@ -1,6 +1,6 @@
 # ForReal
 
-ForReal is a cloud-enabled and machine learning-supported real estate prediction system. This project is now hosted on https://fierce-headland-66771.herokuapp.com/
+ForReal is a cloud-enabled and machine-learning-supported real estate prediction system. This project is now hosted on https://fierce-headland-66771.herokuapp.com/
 
 ### File
 1. web_server.js
@@ -18,7 +18,7 @@ ForReal is a cloud-enabled and machine learning-supported real estate prediction
 
 ### Installation
 
-ForReal requires [Node.js](https://nodejs.org/), [MongDB](https://www.mongodb.com/download-center#enterprise) to run. We also need to install Express and Body-Parser. Meanwhile, python 2.7, pandas and xgboost package is needed.
+ForReal requires [Node.js](https://nodejs.org/), [MongDB](https://www.mongodb.com/download-center#enterprise) to run. We also need to install Express and Body-Parser. Meanwhile, python 2.7, pandas and xgboost package are needed.
 
 Install the dependencies and devDependencies and start the server.
 
