@@ -33,11 +33,11 @@ app.get('/test', function(req, res, next) {
 });
 // this is transfer data to the front end
 
-var flag = false
-var zip = "98178"
-var bed = "4"
-var priceUpper = "10000000"
-var priceLower = "1"
+var flag = false;
+var zip = "98178";
+var bed = "4";
+var priceUpper = "10000000";
+var priceLower = "1";
 
 var query = {}
 
