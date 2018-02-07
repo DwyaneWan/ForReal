@@ -30,14 +30,14 @@ $ npm install Body-Parser
 $ node web_server.js
 ```
 
-Derive the data from model training
+Derive the data from model training:
 
 ```sh
 $ cd <path-public>
 $ python project.py
 ```
 
-Import the JSON to the Database
+Import the JSON to the Database:
 
 ```sh
 $ cd <path-to-mongo-bin>
@@ -45,7 +45,7 @@ $ ./mongod
 $ ./mongoimport --db mydb --collection customers --file updated.jso>
 ```
 
-run the web server
+Run the web server:
 ```sh
 $ cd app
 $ node web_server.js
